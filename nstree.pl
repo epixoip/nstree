@@ -87,7 +87,7 @@ foreach my $addr (sort keys %daemons)
         print "$toffset|-- tcp/$port\n";
         print "$toffset|   |-- cmd: " . $daemons{$addr}{$port}{'args'} . "\n";
         print "$toffset|   |-- pid: " . $daemons{$addr}{$port}{'pid'} . ' (euid=' . $daemons{$addr}{$port}{'euid'} . ', egid=' . $daemons{$addr}{$port}{'egid'} . ")\n";
-        print "$toffset|   |-- connections: " . (defined @{$daemons{$addr}{$port}{'connections'};} ? @{$daemons{$addr}{$port}{'connections'}} : '0') . "\n";
+        print "$toffset|   |-- connections: " . (defined ${$daemons{$addr}{$port}{'connections'}}[0] ? @{$daemons{$addr}{$port}{'connections'}} : '0') . "\n";
 
         foreach my $conn (@{$daemons{$addr}{$port}{'connections'}})
         {
